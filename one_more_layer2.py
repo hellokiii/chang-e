@@ -62,20 +62,20 @@ print(num_classes)
 def larger_model():
 	# create model
 	model = Sequential()
-	model.add(Conv2D(30, (10, 10), input_shape=(200, 200, 1), activation='relu'))
-	model.add(MaxPooling2D(pool_size=(2, 2)))
+	model.add(Conv2D(40, (10, 10), input_shape=(200, 200, 1), activation='relu'))
+	model.add(MaxPooling2D(pool_size=(4,4)))
 	model.add(Conv2D(30, (5, 5), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
 	model.add(Dropout(0.2))
 
+
 	model.add(Conv2D(15, (3, 3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
-
 	model.add(Dropout(0.2))
 	model.add(Flatten()) # for fully connected
-	model.add(Dense(128, activation='relu'))
+	model.add(Dense(256, activation='relu'))
 	xavier = keras.initializers.glorot_normal()
-	model.add(Dense(50, activation='relu', kernel_initializer=xavier))
+	model.add(Dense(128, activation='relu', kernel_initializer=xavier))
 	model.add(Dense(num_classes, activation='softmax'))
 	# Compile model
 	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
@@ -87,7 +87,7 @@ model = larger_model()
 
 
 # Fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=50, batch_size=200, verbose=2)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=70, batch_size=200, verbose=2)
 # Final evaluation of the model
 scores = model.evaluate(X_test, y_test, verbose=0)
 print("Baseline Error: %.2f%%" % (100-scores[1]*100))
