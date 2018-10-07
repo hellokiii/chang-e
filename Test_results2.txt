@@ -1,0 +1,55 @@
+model.add(Conv2D(11, (5, 5), input_shape=(200, 200, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(3, 3)))
+    model.add(Dense(170, activation='relu'))
+
+    model.add(Conv2D(27, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(3, 3)))
+    model.add(Dense(50, activation='relu'))
+    
+    model.add(Dropout(0.2))
+    model.add(Flatten())
+
+    model.add(Dense(num_classes, activation='softmax'))
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+Train on 5103 samples, validate on 1276 samples
+Epoch 1/18
+2018-10-07 14:14:09.120563: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+ - 267s - loss: 1.0713 - acc: 0.6218 - val_loss: 0.6800 - val_acc: 0.7437
+Epoch 2/18
+ - 283s - loss: 0.4986 - acc: 0.8140 - val_loss: 0.4956 - val_acc: 0.8221
+Epoch 3/18
+ - 283s - loss: 0.3525 - acc: 0.8689 - val_loss: 0.4308 - val_acc: 0.8417
+Epoch 4/18
+ - 272s - loss: 0.2863 - acc: 0.8975 - val_loss: 0.3944 - val_acc: 0.8550
+Epoch 5/18
+ - 275s - loss: 0.2016 - acc: 0.9273 - val_loss: 0.3814 - val_acc: 0.8519
+Epoch 6/18
+ - 273s - loss: 0.1781 - acc: 0.9312 - val_loss: 0.3803 - val_acc: 0.8762
+Epoch 7/18
+ - 272s - loss: 0.1290 - acc: 0.9541 - val_loss: 0.3657 - val_acc: 0.8801
+Epoch 8/18
+ - 273s - loss: 0.1104 - acc: 0.9575 - val_loss: 0.3904 - val_acc: 0.8707
+Epoch 9/18
+ - 272s - loss: 0.1086 - acc: 0.9596 - val_loss: 0.3634 - val_acc: 0.8738
+Epoch 10/18
+ - 278s - loss: 0.0853 - acc: 0.9702 - val_loss: 0.4040 - val_acc: 0.8676
+Epoch 11/18
+ - 272s - loss: 0.0779 - acc: 0.9720 - val_loss: 0.4008 - val_acc: 0.8762
+Epoch 12/18
+ - 270s - loss: 0.0695 - acc: 0.9747 - val_loss: 0.4150 - val_acc: 0.8770
+Epoch 13/18
+ - 271s - loss: 0.0714 - acc: 0.9733 - val_loss: 0.4258 - val_acc: 0.8676
+Epoch 14/18
+ - 280s - loss: 0.1136 - acc: 0.9643 - val_loss: 0.4079 - val_acc: 0.8754
+Epoch 15/18
+ - 269s - loss: 0.0549 - acc: 0.9810 - val_loss: 0.4882 - val_acc: 0.8699
+Epoch 16/18
+ - 273s - loss: 0.0946 - acc: 0.9677 - val_loss: 0.4426 - val_acc: 0.8582
+Epoch 17/18
+ - 277s - loss: 0.0643 - acc: 0.9771 - val_loss: 0.4485 - val_acc: 0.8668
+Epoch 18/18
+ - 278s - loss: 0.0509 - acc: 0.9814 - val_loss: 0.5286 - val_acc: 0.8676
+Baseline Error: 13.24%
+
+
